@@ -1,0 +1,103 @@
+:root {
+  --card-bg: #1e1e1e;
+  --card-border: rgba(255, 255, 255, 0.2);
+  --hover-border: #ffffff;
+  --hover-text: #ffffff;
+  --text-size: 64px;
+}
+
+/* 整體區塊 */
+.role-section {
+  background-color: #0b0b15;
+  background-image: url('img/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 40px;
+}
+/* 卡片容器 */
+.role-container {
+  display: flex;
+  gap: 32px;
+  max-width: 1400px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* 每張角色卡片 */
+.role-card {
+  position: relative;
+  width: 300px;
+  height: 700px;
+  background-color: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: border 0.3s ease;
+}
+
+.role-card:hover {
+  border: 2px solid var(--hover-border);
+}
+
+/* LOGO 文字佔位符 */
+.logo-placeholder {
+  font-size: 120px;
+  color: rgba(255, 255, 255, 0.08);
+  writing-mode: vertical-rl;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+/* 懸停時的類型文字 */
+.role-card::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 20px;
+  left: 16px;
+  color: var(--hover-text);
+  font-size: var(--text-size);
+  font-weight: 900;
+  opacity: 0;
+  transform: translateY(20px);
+  writing-mode: vertical-rl;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+  letter-spacing: 2px;
+}
+
+.role-card:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 手機排版：卡片垂直排列 */
+@media (max-width: 768px) {
+  .role-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .role-card {
+    width: 80%;
+  }
+
+  .logo-placeholder {
+    font-size: 90px;
+  }
+
+  .role-card::after {
+    font-size: 36px;
+    bottom: 10px;
+    left: 10px;
+  }
+}

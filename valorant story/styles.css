@@ -1,0 +1,200 @@
+:root {
+    --text-color: #ffffff;
+    --dim-text-color: #cccccc;
+    --main-font: 'Roboto', sans-serif;
+    --card-bg-color: rgba(0, 0, 0, 0.75);
+
+    /* 確保 Section 2 的變數在這裡也被定義，供 section-2.css 引用 */
+    --info-section-padding: 100px 50px; 
+    --info-container-gap: 20px;         
+    --card-min-height: 700px;           
+    --card-internal-padding: 30px;      
+    --wide-card-flex-ratio: 2.2;
+    --narrow-card-flex-ratio: 1;
+    --narrow-card-hover-flex-ratio: 3;
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 啟用平滑滾動 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ======== 全屏滾動 ======== */
+.scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; 
+}
+
+/* 確保所有區塊佔滿視窗並啟用鎖定點 */
+.full-page-section {
+    min-height: 100vh;
+    width: 100%;
+    scroll-snap-align: start; 
+    position: relative;
+}
+
+/* ================================================= */
+/* ======== 第一區塊：主視覺頁樣式 (section-1) ======== */
+/* ================================================= */
+
+.main-visual-section {
+    background-image: url('img/background.png'); 
+    background-color: #000000;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    font-family: var(--main-font);
+    display: flex;
+    flex-direction: column;
+}
+
+/* 導覽列 */
+.navbar {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+/* Logo 樣式 */
+.logo {
+    font-size: 1.4em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.2; 
+}
+
+/* 電腦版導航連結 */
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.navbar nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.navbar nav ul li a:hover {
+    opacity: 1;
+}
+
+/* 內容疊加 (定位底部文字) */
+.content-overlay {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center;
+    width: 100%;
+    padding-bottom: 80px; 
+}
+
+/* 底部文字和箭頭 */
+.caption-area {
+    text-align: center;
+    z-index: 10;
+}
+
+.main-caption {
+    font-size: 1.2em;
+    color: var(--dim-text-color);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+}
+
+/* 箭頭樣式、動畫 */
+.scroll-indicator {
+    cursor: pointer;
+}
+.scroll-indicator .arrow-image {
+    width: 40px; 
+    height: auto; 
+    display: block; 
+    margin: 0 auto; 
+    animation: pulseArrow 1.5s infinite;
+}
+@keyframes pulseArrow {
+    0% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(10px); opacity: 0.5; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* 漢堡按鈕 (只在手機上顯示) */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    z-index: 200; 
+    width: 30px;
+    height: 25px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--text-color);
+    border-radius: 9px;
+    margin: 5px 0;
+    transition: 0.25s ease-in-out;
+}
+
+/* ================================================= */
+/* ======== 響應式設計 (Media Queries) ======== */
+/* ================================================= */
+
+/* 平板裝置 (螢幕寬度小於 1024px) */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0 20px;
+    }
+    
+    .navbar nav ul {
+        gap: 20px;
+    }
+}
+
+/* 手機裝置 (螢幕寬度小於 768px) */
+@media (max-width: 768px) {
+    
+    /* 1. 漢堡按鈕相關 */
+    .hamburger-menu { display: block; }
+    .navbar { flex-direction: row; justify-content: space-between; align-items: center; top: 15px; }
+
+    /* 2. 手機選單樣式：全屏展開 */
+    #main-nav { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.85); z-index: 150; padding-top: 100px; }
+    #main-nav.active { display: flex; flex-direction: column; justify-content: flex-start; align-items: center; }
+    #main-nav ul { flex-direction: column; text-align: center; width: 100%; gap: 30px; }
+    #main-nav ul li a { font-size: 1.8em; padding: 10px 0; display: block; }
+
+    /* 3. 漢堡圖標變 X 樣式 */
+    .hamburger-menu.open .bar:nth-child(1) { transform: rotate(-45deg) translate(-8px, 3px); }
+    .hamburger-menu.open .bar:nth-child(2) { opacity: 0; }
+    .hamburger-menu.open .bar:nth-child(3) { transform: rotate(45deg) translate(-8px, -3px); }
+
+    /* 4. 其他 RWD 樣式 */
+    .main-caption { font-size: 1em; }
+}

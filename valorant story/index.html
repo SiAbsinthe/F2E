@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VALORANT STORY</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="section-2.css">
+    <link rel="stylesheet" href="section-3.css">
+    <link rel="stylesheet" href="section-4.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="scroll-container"> 
+
+        <section id="section-1" class="full-page-section main-visual-section">
+            <header class="navbar">
+                <div class="logo">VALORANT STORY</div>
+                
+                <div class="hamburger-menu" onclick="toggleMenu()">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="#section-2">BACKGROUND</a></li>
+                        <li><a href="#section-3">CHARACTER</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main class="content-overlay">
+                <div class="caption-area">
+                    <p class="main-caption">
+                        這個世界觀充滿懷疑，兩個世界究竟是正義、誰是邪惡？
+                    </p>
+                    <div class="scroll-indicator" onclick="scrollToSection('section-2')">
+                        <img src="img/arrow_down.png" alt="Scroll Down" class="arrow-image">
+                    </div>
+                </div>
+            </main>
+        </section>
+        
+        <section id="section-2" class="full-page-section info-section">
+            <div id="info-container" class="info-container"> 
+                <div id="wide-card" class="info-card wide-card card-bg-world">
+                    <h2 class="card-title">世界觀基礎</h2>
+                    <p class="card-text">故事發生在一個與我們地球相似的世界，約十年前發生了被稱為「第一道光」的神秘事件——一起發生在北極的大型時空裂縫事故。</p>
+                </div>
+                
+                <div class="info-card narrow-card card-bg-crystal" 
+                     onmouseover="handleNarrowCardHover(true)" 
+                     onmouseout="handleNarrowCardHover(false)">
+                    <h2 class="card-title">核心元素：源晶與幅能</h2>
+                    <p class="narrow-card-text">「第一道光」帶來了一種新能源物質「源晶」，由跨國巨型企業「王國企業」（Kingdom Corporation）獨家掌控開採技術。源晶產生的強大能量稱為「幅能」，但也帶來環境汙染、貧富差距加劇等問題，甚至刺激生物異常生長，可能是各地出現具有超能力的「幅能者」的原因之一。</p>
+                </div>
+
+                <div class="info-card narrow-card card-bg-protocol"
+                     onmouseover="handleNarrowCardHover(true)" 
+                     onmouseout="handleNarrowCardHover(false)">
+                    <h2 class="card-title">主角組織：瓦羅蘭特協議</h2>
+                    <p class="narrow-card-text">「瓦羅蘭特協議」（VALORANT PROTOCOL）是為了處理第一道光事件後各地層出不窮的「幅能危機」而成立的秘密組織，成員多是不滿王國企業的人。</p>
+                </div>
+                
+                <div class="info-card narrow-card card-bg-universe"
+                     onmouseover="handleNarrowCardHover(true)" 
+                     onmouseout="handleNarrowCardHover(false)">
+                    <h2 class="card-title">平行世界衝突</h2>
+                    <p class="narrow-card-text">除了原初的「阿爾發」世界，還存在一個鏡像的「歐米茄」平行宇宙。兩個世界的王國公司曾合作開發新能源，但實驗失敗後關係破裂。歐米茄世界面臨極端環境變遷，人們被迫住在「生態穹頂」中，來自歐米茄的「瓦羅蘭特軍團」（VALORANT LEGION）開始入侵阿爾發世界奪取幅能。</p>
+                </div>
+                
+                <div class="info-card narrow-card card-bg-game"
+                     onmouseover="handleNarrowCardHover(true)" 
+                     onmouseout="handleNarrowCardHover(false)">
+                    <h2 class="card-title">遊戲背景</h2>
+                    <p class="narrow-card-text">遊戲中玩家扮演的特工透過安裝與拆除「刺針」炸彈，重現兩個平行世界之間的衝突。瓦羅蘭特協議後來成功重建傳送門，潛入歐米茄世界調查，卻發現對方可能並非完全邪惡，而是將入侵者視為災難、把瓦羅蘭特軍團視為拯救世界的英雄。</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="section-3" class="full-page-section role-section">
+            <div class="role-container">
+                <a href="character-duelist.html" class="role-card" data-label="決鬥者">
+                <div class="logo-placeholder">Duelist</div>
+                </a>
+                <a href="character-initiator.html" class="role-card" data-label="先鋒">
+                <div class="logo-placeholder">Initiator</div>
+                </a>
+                <a href="character-sentinel.html" class="role-card" data-label="守衛">
+                <div class="logo-placeholder">Sentinel</div>
+                </a>
+                <a href="character-controller.html" class="role-card" data-label="控場者">
+                <div class="logo-placeholder">Controller</div>
+                </a>
+            </div>
+        </section>
+
+        <section id="section-4" class="footer-section">
+            <div class="footer-inner">
+
+                <!-- 左邊區塊 -->
+                <div class="footer-left">
+                <h2 class="footer-title">RIOT 官方網站</h2>
+                <div class="footer-icons">
+                    <img src="img/riot_games.png" alt="Riot Games">
+                    <img src="img/youtube.png" alt="YouTube">
+                    <img src="img/twitter.png" alt="X (Twitter)">
+                    <img src="img/facebook.png" alt="Facebook">
+                    <img src="img/instagram.png" alt="Instagram">
+                </div>
+                </div>
+
+                <!-- 右邊區塊 -->
+                <div class="footer-right">
+                <p class="creator">Created by <span>Absinthe, Demi</span></p>
+                <p class="note">此頁面為學術研究之成果，內容僅供非商業用途分享</p>
+                <p class="copyright">
+                    RIOT GAMES、〈特戰英豪〉及其相關標誌皆為 Riot Games, Inc. 專屬之商標、服務商標及註冊商標<br>
+                    ©2020-2025 Riot Games, Inc. 版權所有
+                </p>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 滾動功能
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // 漢堡選單切換功能
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+            
+            const hamburger = document.querySelector('.hamburger-menu');
+            hamburger.classList.toggle('open');
+        }
+
+        // 處理寬卡片收縮效果
+        function handleNarrowCardHover(isHovering) {
+            const wideCard = document.getElementById('wide-card');
+            if (!wideCard) return;
+
+            if (isHovering) {
+                clearTimeout(shrinkTimeout); // 防止還沒 timeout 就被打斷
+                wideCard.classList.add('wide-card-shrink');
+            } else {
+                shrinkTimeout = setTimeout(() => {
+                    wideCard.classList.remove('wide-card-shrink');
+                }, 250);
+            }
+        }
+    </script>
+
+</body>
+</html>
