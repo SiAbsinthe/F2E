@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+  background-color: #121212;
+  color: #fff;
+}
+
+.character-page {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 左側角色列表 */
+.character-list {
+  width: 260px;
+  background-color: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #555 #222;
+}
+
+.character-list::-webkit-scrollbar {
+  width: 8px;
+}
+.character-list::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+.character-list::-webkit-scrollbar-track {
+  background: #222;
+}
+
+.character-button {
+  background-color: #2a2a2a;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  transition: transform 0.3s ease;
+}
+
+.character-button img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.character-button span {
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+.character-button:hover {
+  transform: scale(1.05);
+  background-color: #444;
+}
+
+.character-button.active {
+  border: 2px solid #fff;
+}
+
+/* 背景容器區塊 */
+.character-detail-container {
+  flex-grow: 1;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.4s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 詳細卡片（右下角） */
+.character-detail {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 480px;
+  width: 90%;
+}
+
+.character-detail img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+#char-name {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+#char-country {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 12px;
+}
+
+#char-story {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* 回首頁按鈕（右上角） */
+.home-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.home-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}

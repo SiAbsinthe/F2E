@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title></title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #000;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    #info {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
+      pointer-events: none;
+      z-index: 10;
+    }
+    #modeToggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 10;
+    }
+    #popup {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 8px;
+      border-radius: 5px;
+      pointer-events: none;
+      display: none;
+      z-index: 20;
+    }
+  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <div id="info">
+   
+  </div>
+
+  <div id="modeToggle">
+    <button id="toggleBtn"></button>
+  </div>
+
+  <div id="popup"></div>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    let isDay = true;
+    let isFrozen = false;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 15;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    document.body.appendChild(renderer.domElement);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.rotateSpeed = 0.5;
+
+    const textureLoader = new THREE.TextureLoader();
+    const earthTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/c/c3/Solarsystemscope_texture_2k_earth_daymap.jpg');
+    const nightTexture = textureLoader.load('https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/planets/earth_at_night_2048.jpg');
+
+    const sphereGeometry = new THREE.SphereGeometry(5, 64, 64);
+    const sphereMaterial = new THREE.MeshPhongMaterial({ map: earthTexture, shininess: 5 });
+    const earth = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    scene.add(earth);
+
+    document.getElementById('toggleBtn').addEventListener('click', () => {
+      isDay = !isDay;
+      earth.material.map = isDay ? earthTexture : nightTexture;
+      earth.material.needsUpdate = true;
+    });
+
+    const atmosphereGeometry = new THREE.SphereGeometry(5.1, 64, 64);
+    const atmosphereMaterial = new THREE.MeshBasicMaterial({
+      color: 0x00aaff,
+      transparent: true,
+      opacity: 0.15,
+      side: THREE.BackSide
+    });
+    const atmosphere = new THREE.Mesh(atmosphereGeometry, atmosphereMaterial);
+    scene.add(atmosphere);
+
+    const starGeometry = new THREE.BufferGeometry();
+    const starMaterial = new THREE.PointsMaterial({ color: 0xffffff });
+    const starVertices = [];
+    for (let i = 0; i < 1000; i++) {
+      starVertices.push((Math.random() - 0.5) * 200, (Math.random() - 0.5) * 200, (Math.random() - 0.5) * 200);
+    }
+    starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+    const stars = new THREE.Points(starGeometry, starMaterial);
+    scene.add(stars);
+
+    function latLongToVector3(lat, lon, radius) {
+      const phi = (90 - lat) * (Math.PI / 180);
+      const theta = (lon + 180) * (Math.PI / 180);
+      const x = -(radius * Math.sin(phi) * Math.cos(theta));
+      const z = (radius * Math.sin(phi) * Math.sin(theta));
+      const y = (radius * Math.cos(phi));
+      return new THREE.Vector3(x, y, z);
+    }
+
+    const markerGroup = new THREE.Group();
+    scene.add(markerGroup);
+
+    const placesJSON = [
+      { "name": "台灣 (Taiwan)", "lat": 23.6978, "lon": 120.9605, "value": 10 },
+      { "name": "紐約 (New York)", "lat": 40.7128, "lon": -74.0060, "value": 8 },
+      { "name": "倫敦 (London)", "lat": 51.5074, "lon": -0.1278, "value": 5 },
+      { "name": "東京 (Tokyo)", "lat": 35.6762, "lon": 139.6503, "value": 9 },
+      { "name": "雪梨 (Sydney)", "lat": -33.8688, "lon": 151.2093, "value": 6 },
+      { "name": "開普敦 (Cape Town)", "lat": -33.9249, "lon": 18.4241, "value": 4 },
+      { "name": "巴西利亞 (Brasilia)", "lat": -15.7801, "lon": -47.9292, "value": 7 }
+    ];
+
+    placesJSON.forEach(place => {
+      const pos = latLongToVector3(place.lat, place.lon, 5);
+      const markerGeometry = new THREE.SphereGeometry(0.15, 16, 16);
+      const markerMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+      const marker = new THREE.Mesh(markerGeometry, markerMaterial);
+      marker.position.copy(pos);
+      marker.lookAt(new THREE.Vector3(0, 0, 0));
+      marker.userData = { name: place.name, value: place.value };
+      markerGroup.add(marker);
+    });
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+    scene.add(ambientLight);
+
+    const pointLight = new THREE.PointLight(0xffffff, 1.5);
+    pointLight.position.set(10, 10, 10);
+    scene.add(pointLight);
+
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    const popup = document.getElementById('popup');
+
+    window.addEventListener('click', (event) => {
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(markerGroup.children);
+      if (intersects.length > 0) {
+        const data = intersects[0].object.userData;
+        popup.style.left = event.clientX + 'px';
+        popup.style.top = event.clientY + 'px';
+        popup.innerHTML = `<strong>${data.name}</strong><br>數值: ${data.value}`;
+        popup.style.display = 'block';
+        isFrozen = true;
+      } else {
+        popup.style.display = 'none';
+        isFrozen = false;
+      }
+    });
+
+    function animate() {
+      requestAnimationFrame(animate);
+      if (!isFrozen) {
+        earth.rotation.y += 0.001;
+        markerGroup.rotation.y += 0.001;
+        atmosphere.rotation.y += 0.001;
+      }
+      controls.enabled = !isFrozen;
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      popup.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sentinel 角色介紹 | VALORANT STORY</title>
+  <link rel="stylesheet" href="character.css">
+</head>
+<body>
+
+  <div class="character-page">
+    
+    <!-- 左側角色列表 -->
+    <aside class="character-list"></aside>
+
+    <!-- 右側背景展示 -->
+    <main class="character-detail-container" id="character-container">
+      
+      <!-- 回首頁按鈕 -->
+      <button class="home-button" onclick="location.href='index.html'">回首頁</button>
+
+      <!-- 詳細內容區塊 -->
+      <div class="character-detail">
+        <img id="char-image" src="" alt="角色圖片">
+        <h1 id="char-name">角色名稱</h1>
+        <p id="char-country">國籍</p>
+        <p id="char-story">角色故事</p>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+    const currentRole = "Sentinel";// 指定特務類型
+  </script>
+  <script src="character.js"></script>
+</body>
+</html>

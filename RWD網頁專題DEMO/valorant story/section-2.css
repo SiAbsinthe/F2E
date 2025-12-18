@@ -1,0 +1,378 @@
+/* =========================
+   Section-2  完整樣式（含圖片）
+   ========================= */
+
+/* ---- 變數 ---- */
+:root {
+  /* 版面尺寸與間距 */
+  --section-max-width: 1500px;
+  --section-padding-x: 32px;
+  --section-padding-y: 48px;
+  --gap: 20px;
+
+  /* 卡片尺寸比例（flex-basis） */
+  --wide-card-flex-ratio: 3;          /* 寬卡片平時比例 */
+  --narrow-card-flex-ratio: 0.9;      /* 窄卡片平時比例 */
+  --narrow-card-hover-flex-ratio: 2.2;/* 窄卡片展開比例 */
+
+  /* 內距與圓角 */
+  --card-internal-padding: 18px;
+  --card-radius: 18px;
+
+  /* 文字顏色 */
+  --title-color: #fff;
+  --text-color: rgba(255,255,255,0.92);
+}
+
+/* ---- 區塊容器 ---- */
+.full-page-section.info-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: var(--section-padding-y) var(--section-padding-x);
+  box-sizing: border-box;
+
+  /* 背景圖片 */
+  position: relative;
+  isolation: isolate;
+  background-color: #0f1923;
+}
+
+.full-page-section.info-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.25) 0%,
+    rgba(0,0,0,0.35) 60%,
+    rgba(0,0,0,0.40) 100%
+  );
+}
+
+.info-container {
+  width: 100%;
+  max-width: var(--section-max-width);
+  display: flex;
+  align-items: stretch;
+  gap: var(--gap);
+}
+
+/* ---- 卡片基礎 ---- */
+.info-card {
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  color: var(--text-color);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+
+  /* 卡片背景用圖片 */
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.info-card .card-title {
+  font-size: 48px;
+  line-height: 1.1;
+  color: var(--title-color);
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.info-card p {
+  margin: 0;
+  font-size: 36px;
+  line-height: 1.7;
+  color: var(--text-color);
+  text-align: justify; 
+}
+
+/* ---- 卡片（世界觀） ---- */
+.wide-card {
+  flex: var(--wide-card-flex-ratio) 1 0;
+  padding: var(--card-internal-padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;
+  transition: flex 0.4s ease-in-out;
+}
+
+.wide-card .card-title {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+/* 讓世界觀縮成直條、內文隱藏 */
+.wide-card.wide-card-shrink {
+  flex: var(--narrow-card-flex-ratio) 1 0;
+  min-width: 150px;
+  padding: 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  transition: flex 0.4s ease-in-out;
+}
+.wide-card.wide-card-shrink .card-title {
+  padding: var(--card-internal-padding);
+  font-size: 36px;
+}
+.wide-card.wide-card-shrink .card-text {
+  opacity: 0;
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: opacity .35s ease, max-height .35s ease, padding .35s ease;
+}
+
+/* ---- 卡片 ---- */
+.narrow-card {
+  flex: var(--narrow-card-flex-ratio) 1 0;
+  min-width: 150px;
+  padding: 0;
+  display: flex;
+  flex-direction: column-reverse; 
+  writing-mode: vertical-rl;      
+  text-orientation: mixed;
+  white-space: normal;
+  cursor: default;
+  transition:
+    flex .6s cubic-bezier(0.25,0.46,0.45,0.94),
+    padding .35s ease,
+    background-color .35s ease;
+}
+
+.narrow-card .card-title {
+  padding: var(--card-internal-padding);
+}
+
+.narrow-card .narrow-card-text {
+  opacity: 0;
+  max-height: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  transition:
+    opacity .4s ease-in-out,
+    max-height .4s ease-in-out,
+    padding .4s ease-in-out,
+    width .4s ease-in-out;
+  align-self: flex-start;
+}
+
+/* ---- 卡片展開（hover） ---- */
+.narrow-card:hover {
+  flex: var(--narrow-card-hover-flex-ratio) 1 0;
+  min-width: 340px;
+  padding: var(--card-internal-padding);
+  writing-mode: horizontal-tb;  
+  flex-direction: column;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  min-height: 420px;
+}
+
+.narrow-card:hover .card-title {
+  padding: 0 0 10px 0;
+  align-self: flex-start;
+}
+
+.narrow-card:hover .narrow-card-text {
+  opacity: 1;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  padding: 10px 0 0 0;
+  writing-mode: horizontal-tb;
+
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+/* ---- 卡片背景圖片 + 遮罩 ---- */
+.card-bg-world {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.55)),
+    url("images/card-world.jpg");
+}
+.card-bg-crystal {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.65)),
+    url("images/card-crystal.jpg");
+}
+.card-bg-protocol {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.65)),
+    url("images/card-protocol.jpg");
+}
+.card-bg-universe {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.65)),
+    url("images/card-universe.jpg");
+}
+.card-bg-game {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.65)),
+    url("images/card-game.jpg");
+}
+
+/* 展開時可加深遮罩，提升文字對比 */
+.narrow-card:hover {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.72)),
+    var(--card-expanded-image, none);
+}
+.card-bg-crystal:hover  { --card-expanded-image: url("images/card-crystal.jpg"); }
+.card-bg-protocol:hover { --card-expanded-image: url("images/card-protocol.jpg"); }
+.card-bg-universe:hover { --card-expanded-image: url("images/card-universe.jpg"); }
+.card-bg-game:hover     { --card-expanded-image: url("images/card-game.jpg"); }
+
+/* ---- 互動聚焦 ---- */
+.narrow-card:focus-within,
+.narrow-card:focus {
+  outline: 2px solid rgba(255,255,255,0.35);
+  outline-offset: 2px;
+}
+
+/* ---- 動畫偏好：若使用者不想要動畫，就關掉 transition ---- */
+@media (prefers-reduced-motion: reduce) {
+  .narrow-card,
+  .wide-card,
+  .wide-card.wide-card-shrink,
+  .narrow-card .narrow-card-text,
+  .wide-card.wide-card-shrink .card-text {
+    transition: none !important;
+  }
+}
+
+/* ---- RWD：平板以下改成直向排列，全部水平 ---- */
+@media (max-width: 1024px) {
+  .info-container {
+    flex-direction: column;
+  }
+
+  .wide-card,
+  .wide-card.wide-card-shrink,
+  .narrow-card {
+    flex: 1 1 auto;
+    min-width: 100%;
+    writing-mode: horizontal-tb;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: var(--card-internal-padding);
+  }
+
+  .wide-card .card-title,
+  .wide-card.wide-card-shrink .card-title {
+    font-size: 36px !important;
+    padding: 0 0 16px 0 !important;
+    text-align: left !important;
+    writing-mode: horizontal-tb !important;
+  }
+
+  .wide-card .card-text,
+  .wide-card.wide-card-shrink .card-text {
+    opacity: 1 !important;
+    max-height: none !important;
+    padding: 10px 0 0 0 !important;
+    margin-top: auto !important;
+    align-self: flex-start !important;
+    overflow: visible !important;
+    transition: none !important;
+  }
+
+  .narrow-card {
+    flex: var(--narrow-card-hover-flex-ratio) 1 0 !important;
+    min-width: 100% !important;
+    padding: var(--card-internal-padding) !important;
+    writing-mode: horizontal-tb !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    min-height: 420px;
+    cursor: default;
+  }
+
+  .narrow-card .card-title {
+    font-size: 28px !important;
+    padding: 0 0 10px 0 !important;
+    text-align: left !important;
+    writing-mode: horizontal-tb !important;
+  }
+
+  .narrow-card .narrow-card-text {
+    opacity: 1 !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    padding-top: 16px !important;
+    margin-top: auto !important;
+    overflow: visible !important;
+    writing-mode: horizontal-tb !important;
+    transition: none !important;
+  }
+
+  .narrow-card:hover,
+  .narrow-card:hover .card-title,
+  .narrow-card:hover .narrow-card-text {
+    all: unset;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .full-page-section.info-section {
+    height: auto; /* 內容過多時改為高度自適應 */
+    min-height: 100vh;
+    padding: 80px 20px;
+  }
+
+  .info-container {
+    flex-direction: column; /* 改為垂直堆疊 */
+    gap: 15px;
+  }
+
+  .wide-card, 
+  .wide-card.wide-card-shrink, 
+  .narrow-card {
+    flex: none !important;
+    width: 100% !important;
+    min-height: 300px !important;
+    writing-mode: horizontal-tb !important; /* 文字轉回橫向 */
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding: 24px !important;
+  }
+
+  /* 強制展開平板與手機版的所有內文 */
+  .card-text, 
+  .narrow-card-text {
+    opacity: 1 !important;
+    max-height: none !important;
+    height: auto !important;
+    width: 100% !important;
+    overflow: visible !important;
+    margin-top: 15px !important;
+    display: block !important;
+  }
+
+  .info-card .card-title {
+    font-size: 28px !important;
+    margin-bottom: 10px;
+  }
+}
+
+/* ---- 超小手機 RWD (420px 以下) ---- */
+@media (max-width: 420px) {
+  .info-card .card-title { font-size: 22px !important; }
+  .info-card p { font-size: 14px !important; }
+}

@@ -1,0 +1,125 @@
+:root {
+  --card-bg: #1e1e1e;
+  --card-border: rgba(255, 255, 255, 0.2);
+  --hover-border: #ffffff;
+  --hover-text: #ffffff;
+  --text-size: 64px;
+}
+
+/* 整體區塊 */
+.role-section {
+  background-color: #0f1923;
+  background-image: url('img/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 40px;
+}
+/* 卡片容器 */
+.role-container {
+  display: flex;
+  gap: 32px;
+  max-width: 1400px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* 每張角色卡片 */
+.role-card {
+  position: relative;
+  width: 300px;
+  height: 700px;
+  background-color: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: border 0.3s ease;
+}
+
+.role-card:hover {
+  border: 2px solid var(--hover-border);
+}
+
+/* LOGO 文字佔位符 */
+.logo-placeholder {
+  font-size: 120px;
+  color: rgba(255, 255, 255, 0.08);
+  writing-mode: vertical-rl;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+/* 懸停時的類型文字 */
+.role-card::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 20px;
+  left: 16px;
+  color: var(--hover-text);
+  font-size: var(--text-size);
+  font-weight: 900;
+  opacity: 0;
+  transform: translateY(20px);
+  writing-mode: vertical-rl;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+  letter-spacing: 2px;
+}
+
+.role-card:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 手機排版：卡片垂直排列 */
+@media (max-width: 1024px) {
+  .role-section {
+    height: auto;
+    min-height: 100vh;
+    padding: 100px 20px;
+  }
+
+  .role-container {
+    gap: 20px;
+  }
+
+  .role-card {
+    width: calc(50% - 20px); /* 平板改為一排兩個 */
+    height: 400px;
+  }
+}
+
+/* ---- 手機 RWD (768px 以下) ---- */
+@media (max-width: 768px) {
+  .role-card {
+    width: 100%; /* 手機改為垂直單排 */
+    height: 180px; /* 寬扁比例更適合手機點擊 */
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 30px;
+  }
+
+  .logo-placeholder {
+    writing-mode: horizontal-tb;
+    font-size: 50px;
+    opacity: 0.1;
+  }
+
+  .role-card::after {
+    opacity: 1;
+    transform: translateY(0);
+    writing-mode: horizontal-tb;
+    font-size: 32px;
+    left: 30px;
+    bottom: auto;
+  }
+}
