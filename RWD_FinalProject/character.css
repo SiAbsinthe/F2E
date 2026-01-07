@@ -1,0 +1,184 @@
+body {
+  margin: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow: hidden;
+}
+
+.character-page {
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+}
+
+/* --- 角色列表樣式 --- */
+.character-list {
+  width: 260px;
+  background-color: rgba(20, 20, 20, 0.95);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 15px;
+  overflow-y: auto;
+  z-index: 20;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideInLeft 0.8s ease-out forwards; /* 初始動畫 */
+}
+
+.character-button {
+  background-color: #2a2a2a;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.character-button img { width: 100%; border-radius: 4px; }
+.character-button span { margin-top: 8px; font-weight: bold; }
+.character-button:hover { opacity: 1; background: #333; }
+.character-button.active { opacity: 1; border: 1px solid #ff4655; background: #333; }
+
+/* --- 右側內容區 --- */
+.character-detail-container {
+  flex-grow: 1;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+#globeViz {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 1;
+}
+
+/* --- 詳細資訊卡片 --- */
+.character-detail {
+  position: absolute;
+  right: 40px; bottom: 40px;
+  background: rgba(15, 15, 15, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  max-width: 450px;
+  border-right: 5px solid #ff4655;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.character-detail * { pointer-events: auto; }
+.character-detail img { width: 100%; margin-bottom: 15px; border-radius: 4px; transition: transform 0.5s ease; }
+#char-name { font-size: 32px; margin: 0; text-transform: uppercase; }
+#char-country { color: #ff4655; font-weight: bold; margin-bottom: 10px; }
+#char-story { color: #ccc; line-height: 1.6; text-align: justify; }
+
+/* --- 按鈕導覽列樣式 --- */
+.nav-buttons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 12px;
+  z-index: 30;
+}
+
+.nav-btn {
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  transition: 0.3s;
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+}
+
+/* 回角色選單 */
+.nav-btn.primary {
+  background: #ff4655;
+}
+
+/* 回首頁 */
+.nav-btn.secondary {
+  background: #ff4655;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.nav-btn:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* --- 動畫定義 --- */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 切換時使用的類別 */
+.content-fade-in {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+/* --- RWD --- */
+
+@media (max-width: 1024px) {
+  .character-list { width: 200px; }
+  .character-detail { max-width: 350px; right: 20px; bottom: 20px; }
+  #char-name { font-size: 26px; }
+}
+
+@media (max-width: 768px) {
+  .character-page { flex-direction: column; }
+  .character-list {
+    width: 100%; height: 130px;
+    flex-direction: row; overflow-x: auto; overflow-y: hidden;
+    padding: 10px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1);
+    animation: slideInUp 0.6s ease-out forwards;
+  }
+  
+  .nav-buttons {
+    top: 10px;
+    right: 10px;
+    gap: 8px;
+  }
+  
+  .nav-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .character-button { width: 90px; }
+  .character-detail-container { height: calc(100vh - 130px); }
+  .character-detail {
+    right: 0; bottom: 0; left: 0; max-width: 100%;
+    border-right: none; border-top: 4px solid #ff4655;
+    padding: 15px 20px; display: flex; gap: 15px; align-items: center;
+  }
+  .content-fade-in { animation: slideInUp 0.5s ease-out forwards; }
+  .character-detail img { display: none; }
+  #char-name { font-size: 20px; }
+  #char-story { 
+    font-size: 13px; line-height: 1.4; display: -webkit-box;
+    -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+}

@@ -1,0 +1,241 @@
+[
+  {
+    "name": "亞星卓 Astra",
+    "country": "迦納 GHA",
+    "story": "亞星卓來自非洲迦納，她能駕馭宇宙之力，「隨星所欲」重塑戰場形勢。她完全掌控了星體型態的力量，且擁有洞見觀瞻的戰略能力，因此總是能遙遙領先對手。",
+    "image": "img/character/controller/controller_astra.jfif",
+    "background": "img/character/bg/background_astra.jpg",
+    "role": "Controller"
+  },
+  {
+    "name": "哈泊 Harbor",
+    "country": "印度 IND",
+    "story": "哈泊來自印度沿岸地區，他操縱著古代科技，支配水的力量，如潮水般洶湧衝上戰場。他會放出水沫四濺的湍流和勢不可擋的浪潮，給予友軍護盾，並狠狠擊潰敵軍。",
+    "image": "img/character/controller/controller_harbor.jfif",
+    "background": "img/character/bg/background_harbor.jpg",
+    "role": "Controller"
+  },
+  {
+    "name": "薇蝮 Viper",
+    "country": "美國 USA",
+    "story": "薇蝮是名美國化學家，她的特長是部署五花八門的劇毒化武，掌控戰局的同時，還能妨礙敵人視野。即使毒藥沒能殺死對手，她的心理戰術也會虐死人。",
+    "image": "img/character/controller/controller_viper.jfif",
+    "background": "img/character/bg/background_viper.jpg",
+    "role": "Controller"
+  },
+  {
+    "name": "歐門 Omen",
+    "country": "未知 UNK",
+    "story": "歐門是個記憶中的魅影，在暗影裡巡獵。他能蒙蔽敵人雙眼、在地圖上神出鬼沒，使詭譎的氣氛籠罩全域，而他的敵人永遠在心慌意亂之中，試圖猜測他接下來會在哪裡現身。",
+    "image": "img/character/controller/controller_omen.jfif",
+    "background": "img/character/bg/background_omen.jpg",
+    "role": "Controller"
+  },
+  {
+    "name": "珂樂芙 Clove",
+    "country": "蘇格蘭 SCO",
+    "story": "蘇格蘭裔搗蛋鬼珂樂芙遊走於戰鬥的激情和死亡的冷酷之間，總讓敵人捉摸不定。這位永生不朽的年輕人最愛將敵人耍得團團轉，即便身中數槍倒下，也可能隨時復活、就像沒事一樣。",
+    "image": "img/character/controller/controller_clove.jfif",
+    "background": "img/character/bg/background_clove.jpg",
+    "role": "Controller"
+  },
+  {
+    "name": "布史東 Brimstone",
+    "country": "美國 USA",
+    "story": "來自美國的布史東擁有強大的衛星武器，讓他的隊伍永遠處於優勢。他能投放戰略工具支援前線，包準「恰到好處」且萬無一失，讓他成為地表最強指揮官。",
+    "image": "img/character/controller/controller_brimstone.jfif",
+    "background": "img/character/bg/background_brimstone.jpg",
+    "role": "Controller"
+  },
+
+
+
+
+
+  {
+    "name": "菲尼克斯 Phoenix",
+    "country": "英國 UK",
+    "story": "菲尼克斯來自英國，他的星辰之力融會於其戰鬥風格中，其閃光彈和照明彈足以讓星火燎原。不管有沒有後援，他都能衝鋒陷陣，獨自撂倒敵人。",
+    "image": "img/character/duelist/duelist_phoenix.jfif",
+    "background": "img/character/bg/background_phoenix.jpg",
+    "role": "Duelist"
+  },
+  {
+    "name": "婕提 Jett",
+    "country": "韓國 KR",
+    "story": "身為南韓代表，婕提身手矯捷，能使出他人所不能的精妙險招。交戰時她能把所有人耍得團團轉，以迅雷不及掩耳的速度秒殺敵人。",
+    "image": "img/character/duelist/duelist_jett.jfif",
+    "background": "img/character/bg/background_jett.jpg",
+    "role": "Duelist"
+  },
+  {
+    "name": "芮茲 Raze",
+    "country": "巴西 BRA",
+    "story": "來自巴西的芮茲經常使用巨型槍械展現她大喇喇的個性。她擅長用驚天一「砰」，逼出躲在壕溝的埋伏，掃除狹窄空間的敵人，這就是她的暴力破壞風。",
+    "image": "img/character/duelist/duelist_raze.jfif",
+    "background": "img/character/bg/background_raze.jpg",
+    "role": "Duelist"
+  },
+  {
+    "name": "蕾娜 Reyna",
+    "country": "墨西哥 MEX",
+    "story": "在墨西哥中心經過鍛鍊的蕾娜，有強大的單挑能力，每擊殺一名敵軍，都可以獲得所向無敵的增益效果。她是否能主宰戰場，除了取決於技巧熟練度，也仰賴賽局上的表現。",
+    "image": "img/character/duelist/duelist_reyna.jfif",
+    "background": "img/character/bg/background_reyna.jpg",
+    "role": "Duelist"
+  },
+  {
+    "name": "夜戮 Yoru",
+    "country": "日本 JP",
+    "story": "來自日本的夜戮可以撕裂現實世界的空間，潛入敵軍陣線而不被察覺。他同時運用欺敵和進攻策略先發制人，讓目標措手不及。",
+    "image": "img/character/duelist/duelist_yoru.jfif",
+    "background": "img/character/bg/background_yoru.jpg",
+    "role": "Duelist"
+  },
+  {
+    "name": "妮虹 Neon",
+    "country": "菲律賓 PHI",
+    "story": "妮虹是來自菲律賓的特務，她的身體能產生帶有幅能的生物電流，讓她能一邊高速衝刺一邊釋放電擊。她擅長趁虛而入，然後以迅雷不及掩耳的速度擊倒敵人。",
+    "image": "img/character/duelist/duelist_neon.jfif",
+    "background": "img/character/bg/background_neon.jpg",
+    "role": "Duelist"
+  },
+  {
+    "name": "離索 Iso",
+    "country": "中國 CHN",
+    "story": "中國傭兵離索進入殺戮心流狀態，重組周圍環境的能量化作防彈護盾，專心致志地邁向下一次生死對決。",
+    "image": "img/character/duelist/duelist_iso.jfif",
+    "background": "img/character/bg/background_iso.jpg",
+    "role": "Duelist"
+  },
+  {
+    "name": "維蕾 Waylay",
+    "country": "泰國 THA",
+    "story": "來自泰國、耀眼奪目的維蕾化身為光，在戰場上穿梭，透過光芒碎片擊倒目標後又迅速快閃回到安全之處，一切都發生在眨眼之間。",
+    "image": "img/character/duelist/duelist_waylay.jfif",
+    "background": "img/character/bg/background_waylay.jpg",
+    "role": "Duelist"
+  },
+
+
+  
+
+
+  {
+    "name": "瑟符 Cypher",
+    "country": "摩洛哥 MAR",
+    "story": "瑟符是摩洛哥的情報販子，他隻身一人便是頂尖情報中心，窺探著敵人的一舉一動。沒有計謀可以逃過他的法眼。瑟符永遠監視著你。",
+    "image": "img/character/sentinel/sentinel_cypher.jfif",
+    "background": "img/character/bg/background_cypher.jpg",
+    "role": "Sentinel"
+  },
+  {
+    "name": "聖祈 Sage",
+    "country": "中國 CHN",
+    "story": "來自中國的聖祈，是宛如銅牆鐵壁一般的存在，無論身在何處，除了自保之外，也能確保隊伍的安全。她可以復活不支倒地的友軍，屏除猛烈的攻勢，在槍林彈雨的戰鬥中，建造一座令人安心的庇護所。",
+    "image": "img/character/sentinel/sentinel_sage.jfif",
+    "background": "img/character/bg/background_sage.jpg",
+    "role": "Sentinel"
+  },
+  {
+    "name": "愷宙 Killjoy",
+    "country": "德國 GER",
+    "story": "愷宙是位來自德國的天才，總是氣定神閒，靠著她火力強大的發明來鎮守戰場。她的機器人能對戰局造成十足的影響力，就算沒把敵人立即擊倒，也足以靠著附加的減益效果使他們舉步維艱。",
+    "image": "img/character/sentinel/sentinel_killjoy.jfif",
+    "background": "img/character/bg/background_killjoy.jpg",
+    "role": "Sentinel"
+  },
+  {
+    "name": "錢博爾 Chamber",
+    "country": "法國 FRA",
+    "story": "錢博爾是來自法國的武器設計師，他一身時尚、滿載武力，用致命的精準武器把侵略者一一驅逐。他的特製武器可以守住戰線，從遠處一一消滅敵人，即便作戰出了亂子，他也能優雅應變，臨危不亂。",
+    "image": "img/character/sentinel/sentinel_chamber.jfif",
+    "background": "img/character/bg/background_chamber.jpg",
+    "role": "Sentinel"
+  },
+  {
+    "name": "蒂羅 Deadlock",
+    "country": "挪威 NOR",
+    "story": "挪威籍特務蒂羅佈下大量尖端科技奈米線守住陣地，就連最致命的攻擊也難越雷池一步。在她的警戒下，誰都逃不過她的法眼。她對敵人從不手下留情，遇上她絕對九死而無一生。",
+    "image": "img/character/sentinel/sentinel_deadlock.jfif",
+    "background": "img/character/bg/background_deadlock.jpg",
+    "role": "Sentinel"
+  },
+  {
+    "name": "薇絲 Vyse",
+    "country": "未知 UNK",
+    "story": "善於謀略與操縱金屬的薇絲能釋放液態金屬來隔絕、誘捕敵軍，甚至卸除其武裝。工於心計的她能輕易操控對手心智，讓戰場成為恐懼的代名詞。",
+    "image": "img/character/sentinel/sentinel_vyse.jfif",
+    "background": "img/character/bg/background_vyse.jpg",
+    "role": "Sentinel"
+  },
+  {
+    "name": "維托 Veto",
+    "country": "塞內加爾 SEN",
+    "story": "維托是來自塞內加爾的執法者，身上帶有無可遏抑的DNA突變，也因此獲得能力強化。他能使對手的能力和科技武器變成毫無作用，完全視戰鬥規則為無物。與維托交戰時，槍法是你唯一的依靠。",
+    "image": "img/character/sentinel/sentinel_veto.jfif",
+    "background": "img/character/bg/background_veto.jpg",
+    "role": "Sentinel"
+  },
+
+
+
+
+
+  {
+    "name": "蘇法 Sova",
+    "country": "俄羅斯 RUS",
+    "story": "蘇法出生於俄羅斯的永凍冰原，他靠著快捷而精準的身手，緊追在後、曝光敵蹤、將目標無情殲滅。他手持改造弓，結合出色的偵查能力，讓你逃得了一時，躲不過一世。",
+    "image": "img/character/initiator/initiator_sova.jfif",
+    "background": "img/character/bg/background_sova.jpg",
+    "role": "Initiator"
+  },
+  {
+    "name": "叛奇 Breach",
+    "country": "瑞典 SWE",
+    "story": "叛奇是瑞典的生化人，他能發射強大且精準的雷射震擊，通過火力壓制開闢前往敵區的道路。能夠阻斷敵方，又能造成傷害的他，絕對是確保敵我雙方實力懸殊的不二人選。",
+    "image": "img/character/initiator/initiator_breach.jfif",
+    "background": "img/character/bg/background_breach.jpg",
+    "role": "Initiator"
+  },
+  {
+    "name": "絲凱 Skye",
+    "country": "澳洲 AUS",
+    "story": "絲凱來自澳洲，她與她的野獸同伴會勇闖敵區，為我方開路。除了能召喚生物妨礙敵軍，她還能治療隊友，因此只要有絲凱在側，肯定能展現隊伍的最強實力，避開凶險局面。",
+    "image": "img/character/initiator/initiator_skye.jfif",
+    "background": "img/character/bg/background_skye.jpg",
+    "role": "Initiator"
+  },
+  {
+    "name": "KAY/O K/O",
+    "country": "未知 UNK",
+    "story": "KAY/O是一台戰爭機器，其唯一目的是消滅所有輻能者。他可以抑制對手的能力，讓敵人無力還擊，為自身陣營取得絕大優勢。",
+    "image": "img/character/initiator/initiator_kayo.jfif",
+    "background": "img/character/bg/background_kayo.jpg",
+    "role": "Initiator"
+  },
+  {
+    "name": "菲德 Fade",
+    "country": "土耳其 TUR",
+    "story": "菲德是來自土耳其的賞金獵人，能釋放純粹的惡夢能量來獲取敵人的秘密。她是恐懼的化身，能追獵目標，揭開他們最深層的恐懼，然後用黑暗將其摧毀殆盡。",
+    "image": "img/character/initiator/initiator_fade.jfif",
+    "background": "img/character/bg/background_fade.jpg",
+    "role": "Initiator"
+  },
+  {
+    "name": "蓋克 Gekko",
+    "country": "美國 USA",
+    "story": "洛杉磯人蓋克帶領了一群親密無間的小怪物。他的好夥伴總是一馬當先，打亂敵人陣腳，等蓋克追上後再重整隊伍，再次出擊。",
+    "image": "img/character/initiator/initiator_gekko.jfif",
+    "background": "img/character/bg/background_gekko.jpg",
+    "role": "Initiator"
+  },
+  {
+    "name": "戴侯 Tejo",
+    "country": "哥倫比亞 COL",
+    "story": "哥倫比亞彈道專家「戴侯」對所有擋路的人只有一句話：快閃人，不然就等死吧。",
+    "image": "img/character/initiator/initiator_tejo.jfif",
+    "background": "img/character/bg/background_tejo.jpg",
+    "role": "Initiator"
+  }
+]

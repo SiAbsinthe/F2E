@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VALORANT STORY</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="section-2.css">
+    <link rel="stylesheet" href="section-3.css">
+    <link rel="stylesheet" href="section-4.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="scroll-container"> 
+
+        <section id="section-1" class="full-page-section main-visual-section">
+            <header class="navbar">
+                <div class="logo">VALORANT STORY</div>
+                
+                <div class="hamburger-menu" onclick="toggleMenu()">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="#section-2">BACKGROUND</a></li>
+                        <li><a href="#section-3">CHARACTER</a></li>
+                        <li><a href="#section-4">VIDEO</a></li>
+                        <li style="display: flex; align-items: center;"> <button id="music-toggle" onclick="toggleMusic()">
+                                <span id="music-icon">🔊</span> 
+                                <span class="music-text">MUSIC</span>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+                    <audio id="bg-music" loop>
+                        <source src="audio/background-music.mp3" type="audio/mpeg">
+                    </audio>
+            </header>
+
+            <main class="content-overlay">
+                <div class="caption-area">
+                    <p class="main-caption">
+                        這個世界觀充滿懷疑，兩個世界究竟是正義、誰是邪惡？
+                    </p>
+                    <div class="scroll-indicator" onclick="scrollToSection('section-2')">
+                        <img src="img/arrow_down.png" alt="Scroll Down" class="arrow-image">
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <section id="section-2" class="full-page-section-2 info-section">
+            <div class="info-grid-container">
+                <div class="info-item-card card-bg-world" onclick="openModal('world')">
+                    <div class="card-overlay">
+                        <h2 class="card-title">世界觀基礎</h2>
+                        <span class="view-more">點擊查看詳情</span>
+                    </div>
+                </div>
+
+                <div class="info-item-card card-bg-crystal" onclick="openModal('crystal')">
+                    <div class="card-overlay">
+                        <h2 class="card-title">核心元素：源晶與幅能</h2>
+                        <span class="view-more">點擊查看詳情</span>
+                    </div>
+                </div>
+
+                <div class="info-item-card card-bg-protocol" onclick="openModal('protocol')">
+                    <div class="card-overlay">
+                        <h2 class="card-title">主角組織：瓦羅蘭特協議</h2>
+                        <span class="view-more">點擊查看詳情</span>
+                    </div>
+                </div>
+
+                <div class="info-item-card card-bg-universe" onclick="openModal('universe')">
+                    <div class="card-overlay">
+                        <h2 class="card-title">平行世界衝突</h2>
+                        <span class="view-more">點擊查看詳情</span>
+                    </div>
+                </div>
+
+                <div class="info-item-card card-bg-game" onclick="openModal('game')">
+                    <div class="card-overlay">
+                        <h2 class="card-title">遊戲背景</h2>
+                        <span class="view-more">點擊查看詳情</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="info-modal" class="modal-overlay" onclick="closeModal()">
+                <div class="modal-content" onclick="event.stopPropagation()">
+                    <button class="close-btn" onclick="closeModal()">&times;</button>
+                    <div class="modal-body">
+                        <div id="modal-img-container" class="modal-img-box"></div>
+                        <h2 id="modal-title">標題</h2>
+                        <p id="modal-text">內容文字...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="section-3" class="full-page-section role-section">
+            <div class="role-container">
+                <a href="character-duelist.html" class="role-card duelist" data-label="決鬥者">
+                    <div class="logo-placeholder"></div>
+                </a>
+                <a href="character-initiator.html" class="role-card initiator" data-label="先鋒">
+                    <div class="logo-placeholder"></div>
+                </a>
+                <a href="character-sentinel.html" class="role-card sentinel" data-label="守衛">
+                    <div class="logo-placeholder"></div>
+                </a>
+                <a href="character-controller.html" class="role-card controller" data-label="控場者">
+                    <div class="logo-placeholder"></div>
+                </a>
+            </div>
+        </section>
+
+        <section id="section-4" class="full-page-section footer-section-combined">
+            
+            <div id="section-carousel" class="carousel-strip-container">
+                <div class="carousel-wrapper-strip">
+                    <div class="carousel-container">
+                        <div class="carousel-item active">
+                            <a href="https://youtube.com/playlist?list=PLTFsoy_DWCOMURwUcmOqJMpjkJrqIMh-Q" target="_blank" class="video-link">
+                                <img src="img/carousel/carousel1.png" alt="Video 1" class="carousel-img">
+                                <div class="play-overlay">
+                                    <div class="play-button"></div>
+                                    <p class="video-title">EPISODE 1: ANTHEMS</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://youtube.com/playlist?list=PLTFsoy_DWCOOG3g8H_UnDlYZvWRxg0Irg" target="_blank" class="video-link">
+                                <img src="img/carousel/carousel2.png" alt="Video 2" class="carousel-img">
+                                <div class="play-overlay">
+                                    <div class="play-button"></div>
+                                    <p class="video-title">EPISODE 2:  LORE </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://youtube.com/playlist?list=PLTFsoy_DWCOPDfEvRIlH8uAks0l7e3T9j" target="_blank" class="video-link">
+                                <img src="img/carousel/carousel3.png" alt="Video 3" class="carousel-img">
+                                <div class="play-overlay">
+                                    <div class="play-button"></div>
+                                    <p class="video-title">EPISODE 3: SOUNDTRACK</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://youtube.com/playlist?list=PLTFsoy_DWCON_hzZvc17JvaT9vlKTeJzF" target="_blank" class="video-link">
+                                <img src="img/carousel/carousel4.png" alt="Video 4" class="carousel-img">
+                                <div class="play-overlay">
+                                    <div class="play-button"></div>
+                                    <p class="video-title">EPISODE 4: MUSIC VIDEOS</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://youtube.com/playlist?list=PLTFsoy_DWCOOvT2L8CzAlgqp0997RZjv2" target="_blank" class="video-link">
+                                <img src="img/carousel/carousel5.png" alt="Video 5" class="carousel-img">
+                                <div class="play-overlay">
+                                    <div class="play-button"></div>
+                                    <p class="video-title">EPISODE 5: CINEMATICS</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
+                    <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
+
+                    <div class="carousel-indicators">
+                        <span class="dot active" onclick="currentSlide(0)"></span>
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer-inner">
+                <div class="footer-content-wrapper">
+                    <div class="footer-left">
+                        <h2 class="footer-title">RIOT 官方網站</h2>
+                        <div class="footer-icons">
+                            <a href="https://www.riotgames.com/zh-hant" target="_blank"><img src="img/riot_games.png" alt="Riot Games"></a>
+                            <a href="https://www.youtube.com/riotgames" target="_blank"><img src="img/youtube.png" alt="YouTube"></a>
+                            <a href="https://x.com/riotgames" target="_blank"><img src="img/twitter.png" alt="X (Twitter)"></a>
+                            <a href="https://www.facebook.com/RiotGames/" target="_blank"><img src="img/facebook.png" alt="Facebook"></a>
+                            <a href="https://www.instagram.com/riotgames" target="_blank"><img src="img/instagram.png" alt="Instagram"></a>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <p class="creator">Created by <span>Absinthe, Demi</span></p>
+                        <p class="note">此頁面為學術研究之成果，內容僅供非商業用途分享</p>
+                        <p class="copyright">
+                            RIOT GAMES、〈特戰英豪〉及其相關標誌皆為 Riot Games, Inc. 專屬之商標、服務商標及註冊商標<br>
+                            ©2020-2025 Riot Games, Inc. 版權所有
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </section>
+
+    </div>
+
+    <script>
+        // 1. 滾動功能
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 2. 漢堡選單
+        function toggleMenu() {
+            document.getElementById('main-nav').classList.toggle('active');
+            document.querySelector('.hamburger-menu').classList.toggle('open');
+        }
+
+        // 3. Section-2燈箱
+        const modalData = {
+            world: {
+                title: "世界觀基礎",
+                text: "故事發生在一個與我們地球相似的世界，約十年前發生了被稱為「第一道光」的神秘事件——一起發生在北極的大型時空裂縫事故。",
+                imgUrl: "img/card/01.jfif" 
+            },
+            crystal: {
+                title: "核心元素：源晶與幅能",
+                text: "「第一道光」帶來了一種新能源物質「源晶」，由跨國巨型企業「王國企業」（Kingdom Corporation）獨家掌控開採技術。源晶產生的強大能量稱為「幅能」，但也帶來環境汙染、貧富差距加劇等問題，甚至刺激生物異常生長，可能是各地出現具有超能力的「幅能者」的原因之一。",
+                imgUrl: "img/card/02.jfif" 
+            },
+            protocol: {
+                title: "主角組織：瓦羅蘭特協議",
+                text: "「瓦羅蘭特協議」（VALORANT PROTOCOL）是為了處理第一道光事件後各地層出不窮的「幅能危機」而成立的秘密組織，成員多是不滿王國企業的人。",
+                imgUrl: "img/card/03.jfif" 
+            },
+            universe: {
+                title: "平行世界衝突",
+                text: "除了原初的「阿爾發」世界，還存在一個鏡像的「歐米茄」平行宇宙。兩個世界的王國公司曾合作開發新能源，但實驗失敗後關係破裂。歐米茄世界面臨極端環境變遷，人們被迫住在「生態穹頂」中，來自歐米茄的「瓦羅蘭特軍團」（VALORANT LEGION）開始入侵阿爾發世界奪取幅能。",
+                imgUrl: "img/card/04.jfif" 
+            },
+            game: {
+                title: "遊戲背景",
+                text: "遊戲中玩家扮演的特工透過安裝與拆除「刺針」炸彈，重現兩個平行世界之間的衝突。瓦羅蘭特協議後來成功重建傳送門，潛入歐米茄世界調查，卻發現對方可能並非完全邪惡，而是將入侵者視為災難、把瓦羅蘭特軍團視為拯救世界的英雄。",
+                imgUrl: "img/card/05.jfif" 
+            }
+        };
+
+        function openModal(key) {
+            const data = modalData[key];
+            if (!data) return;
+
+            const modal = document.getElementById('info-modal');
+            const imgContainer = document.getElementById('modal-img-container');
+            const title = document.getElementById('modal-title');
+            const text = document.getElementById('modal-text');
+
+            if (data.imgUrl) {
+                imgContainer.innerHTML = `<img src="${data.imgUrl}" style="width:100%; height:auto; display:block;">`;
+                imgContainer.style.display = 'block';
+                modal.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('${data.imgUrl}')`;
+            } else {
+                imgContainer.innerHTML = '';
+                imgContainer.style.display = 'none';
+                modal.style.backgroundImage = 'none';
+            }
+
+            title.innerText = data.title;
+            text.innerText = data.text;
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('info-modal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; 
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") closeModal();
+        });
+
+        // 4. 輪播
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(n) {
+            if (slides.length === 0) return;
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            currentSlideIndex = (n + slides.length) % slides.length;
+            slides[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+        }
+
+        function moveSlide(step) { showSlide(currentSlideIndex + step); }
+        function currentSlide(idx) { showSlide(idx); }
+
+        let autoPlay = setInterval(() => moveSlide(1), 5000);
+        const wrapper = document.querySelector('.carousel-wrapper-strip');
+        if(wrapper) {
+            wrapper.addEventListener('mouseenter', () => clearInterval(autoPlay));
+            wrapper.addEventListener('mouseleave', () => { 
+                clearInterval(autoPlay);
+                autoPlay = setInterval(() => moveSlide(1), 5000); 
+            });
+        }
+
+        // 5. 音樂
+        const bgMusic = document.getElementById('bg-music');
+        const musicIcon = document.getElementById('music-icon');
+
+        function attemptAutoplay() {
+            bgMusic.volume = 0.1; 
+            const playPromise = bgMusic.play();
+
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // 瀏覽器攔截自動播放，監聽使用者第一次互動
+                    document.addEventListener('click', () => {
+                        bgMusic.play();
+                    }, { once: true });
+                });
+            }
+        }
+
+        function toggleMusic() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicIcon.innerText = "🔊";
+                document.getElementById('music-toggle').style.opacity = "1";
+            } else {
+                bgMusic.pause();
+                musicIcon.innerText = "🔇";
+                document.getElementById('music-toggle').style.opacity = "0.5";
+            }
+        }
+
+        window.addEventListener('load', attemptAutoplay);
+    </script>
+
+</body>
+</html>

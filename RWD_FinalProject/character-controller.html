@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Selection | VALORANT</title>
+  <link rel="stylesheet" href="character.css">
+</head>
+<body>
+  <div class="character-page">
+    <aside class="character-list"></aside>
+
+    <main class="character-detail-container" id="character-container">
+      <div id="globeViz"></div>
+      
+      <div class="nav-buttons">
+        <button class="nav-btn secondary" onclick="location.href='index.html'">回首頁</button>
+        <button class="nav-btn primary" onclick="location.href='index.html#section-3'">回角色選單</button>
+      </div>
+
+      <div class="character-detail" id="info-card">
+        <img id="char-image" src="" alt="Agent Image">
+        <div class="info-content">
+          <h1 id="char-name"></h1>
+          <p id="char-country"></p>
+          <p id="char-story"></p>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="//unpkg.com/globe.gl"></script>
+  <script>const currentRole = "Controller";</script>
+  <script src="character.js"></script>
+</body>
+</html>
